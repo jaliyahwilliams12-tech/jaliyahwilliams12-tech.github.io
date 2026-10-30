@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jaliyah Williams — aspiring data analyst. Explore my learning journey and developing SQL, Excel, and capstone projects.">
+  <meta name="theme-color" content="#fbf6f7">
+  <title>Jaliyah Williams | Data Analytics Portfolio</title>
+  <style>
+    :root {
+      --ink: #24242a;
+      --muted: #666773;
+      --rose: #9b6174;
+      --rose-light: #f5e9ed;
+      --paper: #fffdfd;
+      --panel: #f8f6f6;
+      --line: #e9dfe2;
+      --white: #ffffff;
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .skip { position: absolute; left: -9999px; top: 8px; }
+    .skip:focus { left: 12px; background: white; padding: 10px; z-index: 20; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,253,253,.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      min-height: 70px; display: flex; justify-content: space-between;
+      align-items: center; gap: 24px;
+    }
+    .brand {
+      text-decoration: none; font-weight: 800; letter-spacing: -.045em;
+      font-size: 1.05rem; white-space: nowrap;
+    }
+    .brand span { color: var(--rose); }
+    nav { display: flex; flex-wrap: wrap; gap: 22px; }
+    nav a {
+      color: var(--muted); font-size: .9rem; font-weight: 650;
+      text-decoration: none;
+    }
+    nav a:hover, nav a:focus-visible { color: var(--rose); }
+    .hero {
+      padding: 100px 0 88px;
+      background:
+        radial-gradient(ellipse at 88% 10%, #f2e1e7 0, transparent 38%),
+        linear-gradient(130deg, #fffdfd 34%, #fbf4f6 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .eyebrow, .kicker {
+      color: var(--rose); text-transform: uppercase; letter-spacing: .17em;
+      font-size: .75rem; font-weight: 800;
+    }
+    h1 {
+      max-width: 820px; margin: 17px 0 20px;
+      font-size: clamp(3rem, 7vw, 5.6rem);
+      line-height: 1.02; letter-spacing: -.07em;
+    }
+    h1 em { color: var(--rose); font-style: normal; }
+    .lead { max-width: 690px; color: var(--muted); font-size: 1.15rem; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid var(--rose); border-radius: 5px;
+      padding: 11px 17px; font-weight: 750; font-size: .9rem;
+      text-decoration: none;
+    }
+    .button.primary { background: var(--rose); color: white; }
+    .button.secondary { color: var(--rose); background: transparent; }
+    .meta { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 35px; color: var(--muted); font-size: .86rem; }
+    .meta span::before {
+      content: ""; display: inline-block; width: 7px; height: 7px;
+      border-radius: 50%; background: #c58da0; margin: 0 8px 1px 0;
+    }
+    section { padding: 78px 0; }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.9rem); line-height: 1.12;
+      letter-spacing: -.055em; margin: 10px 0 14px;
+    }
+    .section-intro { max-width: 690px; color: var(--muted); margin: 0 0 32px; }
+    .projects { background: var(--panel); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project {
+      display: flex; flex-direction: column; min-height: 245px;
+      padding: 25px; background: var(--white);
+      border: 1px solid var(--line); border-radius: 7px;
+    }
+    .project-number { color: var(--rose); font-size: .74rem; font-weight: 800; letter-spacing: .15em; }
+    .project h3 { margin: 18px 0 8px; font-size: 1.3rem; letter-spacing: -.03em; }
+    .project p { margin: 0 0 22px; color: var(--muted); font-size: .93rem; }
+    .status {
+      align-self: flex-start; margin-top: auto; border-radius: 99px;
+      padding: 5px 11px; background: var(--rose-light);
+      color: var(--rose); font-size: .7rem; font-weight: 850;
+      letter-spacing: .07em; text-transform: uppercase;
+    }
+    .about-grid { display: grid; grid-template-columns: 205px 1fr; gap: 45px; align-items: start; }
+    .portrait {
+      width: 185px; height: 215px; border: 1px solid var(--line);
+      border-radius: 7px; display: grid; place-items: center;
+      background: linear-gradient(145deg, #f1e0e6, #fbf7f8);
+      color: var(--rose); font-size: 3rem; font-weight: 850; letter-spacing: -.08em;
+    }
+    .portrait-note { color: var(--muted); font-size: .75rem; margin-top: 9px; max-width: 185px; }
+    .about-copy p { margin-top: 0; color: var(--muted); }
+    .skills { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+    .skill { border: 1px solid var(--line); border-radius: 4px; padding: 6px 10px; color: #555660; font-size: .81rem; }
+    .contact { background: #29272c; color: white; }
+    .contact .kicker { color: #e3b6c4; }
+    .contact .section-intro { color: #d4cdd1; }
+    .contact-grid { display: flex; align-items: center; justify-content: space-between; gap: 35px; }
+    .contact-links { display: flex; flex-direction: column; gap: 12px; min-width: min(100%, 320px); }
+    .contact-links a { text-decoration: none; border-bottom: 1px solid #71666c; padding: 7px 0; }
+    .contact-links a:hover, .contact-links a:focus-visible { color: #efc6d3; }
+    footer { padding: 22px 0; background: #222126; color: #c9c3c7; font-size: .8rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 760px) {
+      .nav { align-items: flex-start; flex-direction: column; padding: 16px 0; gap: 12px; }
+      nav { gap: 15px; }
+      .hero { padding: 72px 0; }
+      section { padding: 62px 0; }
+      .grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 25px; }
+      .contact-grid { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home">JALIYAH <span>WILLIAMS</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#projects">Projects</a>
+        <a href="#about">About Me</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="eyebrow">Data Analytics Portfolio</div>
+        <h1>Turning curiosity into <em>insight.</em></h1>
+        <p class="lead">I'm Jaliyah Williams, an aspiring Data Analyst building the skills to turn information into clear, useful insights. Welcome to my learning journey and growing project portfolio.</p>
+        <div class="actions">
+          <a class="button primary" href="#projects">Explore my projects</a>
+          <a class="button secondary" href="#about">About me</a>
+        </div>
+        <div class="meta">
+          <span>Merit America Data Analytics</span>
+          <span>Continuous learning</span>
+          <span>Problem-solving mindset</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="wrap">
+        <div class="kicker">Selected work</div>
+        <h2 class="section-title">Projects in progress</h2>
+        <p class="section-intro">I'm developing hands-on projects as I build my data analytics toolkit. New work and project details will be added here as they are completed.</p>
+        <div class="grid">
+          <article class="project">
+            <div class="project-number">01 / QUERYING DATA</div>
+            <h3>SQL Project</h3>
+            <p>A developing project focused on querying, organizing, and exploring data with SQL.</p>
+            <span class="status">Coming Soon</span>
+          </article>
+          <article class="project">
+            <div class="project-number">02 / APPLIED ANALYSIS</div>
+            <h3>Capstone Project</h3>
+            <p>A future end-to-end project bringing together the skills and methods from my analytics training.</p>
+            <span class="status">Coming Soon</span>
+          </article>
+          <article class="project">
+            <div class="project-number">03 / SPREADSHEETS</div>
+            <h3>Excel Project</h3>
+            <p>A developing project demonstrating spreadsheet organization, analysis, and communicating findings.</p>
+            <span class="status">Coming Soon</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="kicker">A little about me</div>
+        <h2 class="section-title">Curious by nature.<br>Committed to growth.</h2>
+        <div class="about-grid">
+          <div>
+            <div class="portrait" role="img" aria-label="Headshot placeholder with initials JW">JW</div>
+            <div class="portrait-note">Headshot placeholder — I'll add a professional photo here when ready.</div>
+          </div>
+          <div class="about-copy">
+            <p>I'm Jaliyah Williams, an aspiring Data Analyst currently building my technical foundation through the Merit America Data Analytics program. I'm motivated by the process of asking thoughtful questions, finding patterns, and turning information into practical understanding.</p>
+            <p>My experience in customer-facing and service environments has strengthened my communication, problem-solving, adaptability, and attention to detail. I'm bringing those transferable skills into a new career path while developing my abilities in spreadsheets, SQL, and data analysis.</p>
+            <p>My goal is to grow into a data professional who communicates clearly, approaches challenges with curiosity, and helps teams make informed decisions.</p>
+            <div class="skills" aria-label="Skills and areas of development">
+              <span class="skill">Problem-solving</span>
+              <span class="skill">Communication</span>
+              <span class="skill">Attention to detail</span>
+              <span class="skill">Excel — developing</span>
+              <span class="skill">SQL — developing</span>
+              <span class="skill">Data analysis — learning</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <div class="kicker">Let's connect</div>
+          <h2 class="section-title">Have an opportunity<br>or a question?</h2>
+          <p class="section-intro">I'd love to connect and continue growing my professional network.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:Jaliyahwilliams12@gmail.com">Jaliyahwilliams12@gmail.com</a>
+          <a href="https://www.linkedin.com/in/jaliyah-w-9a4253114" target="_blank" rel="noopener noreferrer">LinkedIn profile ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© 2026 Jaliyah Williams</span>
+      <span>Data Analytics Portfolio</span>
+    </div>
+  </footer>
+</body>
+</html>
